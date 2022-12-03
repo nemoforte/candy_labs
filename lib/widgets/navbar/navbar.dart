@@ -1,30 +1,16 @@
-import 'package:candy_labs/widgets/navbar/navbar_item.dart';
-import 'package:candy_labs/widgets/navbar/navbar_logo.dart';
+import 'package:candy_labs/widgets/navbar/navbar_mobile.dart';
+import 'package:candy_labs/widgets/navbar/navbar_tablet_desktop.dart';
 import 'package:flutter/material.dart';
+import 'package:responsive_builder/responsive_builder.dart';
 
 class NavBar extends StatelessWidget {
   const NavBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 100,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          const NavBarLogo(),
-          Row(
-            mainAxisSize: MainAxisSize.min,
-            children: const <Widget>[
-              NavBarItem(title: 'home'),
-              SizedBox(width: 60,),
-              NavBarItem(title:'members'),
-              SizedBox(width: 60,),
-              NavBarItem(title: 'contact')
-            ],
-          )
-        ],
-      ),
+    return ScreenTypeLayout(
+      mobile: const NavBarMobile(),
+      tablet: const NavBarTabletDesktop(),
     );
   }
 }
