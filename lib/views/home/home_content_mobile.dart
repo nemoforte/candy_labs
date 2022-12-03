@@ -4,8 +4,8 @@ import 'package:candy_labs/widgets/centered_view/centered_view.dart';
 import 'package:candy_labs/widgets/navbar/navbar.dart';
 import 'package:flutter/material.dart';
 
-class HomeContentDesktop extends StatelessWidget {
-  const HomeContentDesktop({Key? key}) : super(key: key);
+class HomeContentMobile extends StatelessWidget {
+  const HomeContentMobile({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class HomeContentDesktop extends StatelessWidget {
       backgroundColor: Colors.transparent,
       body: CenteredView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: const <Widget>[
             NavBar(),
             SizedBox(
