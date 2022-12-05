@@ -9,17 +9,18 @@ class NavDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 300,
-      decoration: const BoxDecoration(
-        color: Colors.black12,
-        boxShadow: <BoxShadow>[
+      decoration: BoxDecoration(
+        color: Colors.black12.withOpacity(0.7),
+        boxShadow: const <BoxShadow>[
           BoxShadow(color: Colors.black12, blurRadius: 16),
         ],
       ),
       child: Column(
         children: const <Widget>[
           NavDrawerHeader(),
-          DrawerItem(title: 'Members', icon: Icons.videocam),
-          DrawerItem(title: 'About', icon: Icons.help),
+          DrawerItem(title: 'home', icon: Icons.home),
+          DrawerItem(title: 'members', icon: Icons.account_circle),
+          DrawerItem(title: 'contact', icon: Icons.mail),
         ],
       ),
     );

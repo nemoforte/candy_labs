@@ -16,11 +16,11 @@ class NavDrawerHeader extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: const <Widget>[
           Text(
-            'HALO HALO',
+            'Candy Labs',
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w800, color: Colors.white),
           ),
           Text(
-            'TAP HERE',
+            "What's up?",
             style: TextStyle(color: Colors.white),
           ),
         ],
