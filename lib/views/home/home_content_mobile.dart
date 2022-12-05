@@ -9,23 +9,20 @@ class HomeContentMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.transparent,
-      body: CenteredView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: const <Widget>[
-            NavBar(),
-            SizedBox(
-              height: 150,
-            ),
-            CandyDetails(),
-            SizedBox(
-              height: 50,
-            ),
-            CallToAction(title: 'More about us')
-          ],
-        ),
+    return CenteredView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: const <Widget>[
+          NavBar(),
+          SizedBox(
+            height: 150,
+          ),
+          CandyDetails(),
+          SizedBox(
+            height: 50,
+          ),
+          CallToAction(title: 'More about us')
+        ],
       ),
     );
   }

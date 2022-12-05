@@ -1,3 +1,4 @@
+import 'package:candy_labs/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CallToActionMobile extends StatelessWidget {
@@ -10,11 +11,7 @@ class CallToActionMobile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 10),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          begin: Alignment.centerLeft,
-          end: Alignment.centerRight,
-          colors: <Color>[Colors.pink, Colors.deepOrangeAccent],
-        ),
+        gradient: gradient1,
         borderRadius: BorderRadius.circular(5),
       ),
       child: Text(
