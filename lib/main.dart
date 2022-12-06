@@ -1,4 +1,5 @@
 import 'package:candy_labs/views/home/home_view.dart';
+import 'package:candy_labs/views/members/members_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {

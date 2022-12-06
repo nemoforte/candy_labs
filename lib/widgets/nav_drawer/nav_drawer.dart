@@ -1,3 +1,6 @@
+import 'package:candy_labs/views/contact/contact_view.dart';
+import 'package:candy_labs/views/home/home_view.dart';
+import 'package:candy_labs/views/members/members_view.dart';
 import 'package:candy_labs/widgets/nav_drawer/drawer_item.dart';
 import 'package:candy_labs/widgets/nav_drawer/nav_drawer_header.dart';
 import 'package:flutter/material.dart';
@@ -16,11 +19,35 @@ class NavDrawer extends StatelessWidget {
         ],
       ),
       child: Column(
-        children: const <Widget>[
-          NavDrawerHeader(),
-          DrawerItem(title: 'home', icon: Icons.home),
-          DrawerItem(title: 'members', icon: Icons.account_circle),
-          DrawerItem(title: 'contact', icon: Icons.mail),
+        children: <Widget>[
+          const NavDrawerHeader(),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => const HomeView()),
+              );
+            },
+            child: const DrawerItem(title: 'home', icon: Icons.home),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => const MembersView()),
+              );
+            },
+            child: const DrawerItem(title: 'members', icon: Icons.home),
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (BuildContext context) => const ContactView()),
+              );
+            },
+            child: const DrawerItem(title: 'contact', icon: Icons.mail),
+          ),
         ],
       ),
     );
