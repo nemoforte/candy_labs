@@ -1,7 +1,6 @@
 import 'package:candy_labs/views/home/home_content_desktop.dart';
 import 'package:candy_labs/views/home/home_content_mobile.dart';
 import 'package:candy_labs/widgets/centered_view/centered_view.dart';
-import 'package:candy_labs/widgets/nav_drawer/nav_drawer.dart';
 import 'package:candy_labs/widgets/navbar/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:responsive_builder/responsive_builder.dart';
@@ -11,28 +10,15 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ResponsiveBuilder(
-      builder: (BuildContext context, SizingInformation sizingInformation) => Scaffold(
-        drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile ? const NavDrawer() : null,
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/bc.png'),
-              fit: BoxFit.cover,
-            ),
+    return CenteredView(
+      child: Column(
+        children: <Widget>[
+          const NavBar(),
+          ScreenTypeLayout(
+            mobile: const HomeContentMobile(),
+            desktop: const HomeContentDesktop(),
           ),
-          child: CenteredView(
-            child: Column(
-              children: <Widget>[
-                const NavBar(),
-                ScreenTypeLayout(
-                  mobile: const HomeContentMobile(),
-                  desktop: const HomeContentDesktop(),
-                ),
-              ],
-            ),
-          ),
-        ),
+        ],
       ),
     );
   }

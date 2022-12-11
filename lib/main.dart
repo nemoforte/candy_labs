@@ -1,23 +1,22 @@
-import 'package:candy_labs/views/home/home_view.dart';
-import 'package:candy_labs/views/members/members_view.dart';
+import 'package:candy_labs/auto_route/router.gr.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final FlutterRouter _appRouter = FlutterRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerDelegate: _appRouter.delegate(),
+      routeInformationParser: _appRouter.defaultRouteParser(),
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Palanquin'),
-      ),
-      home: const HomeView(),
+      theme: ThemeData(),
     );
   }
 }

@@ -1,6 +1,5 @@
-import 'package:candy_labs/views/contact/contact_view.dart';
-import 'package:candy_labs/views/home/home_view.dart';
-import 'package:candy_labs/views/members/members_view.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:candy_labs/auto_route/router.gr.dart';
 import 'package:candy_labs/widgets/navbar/navbar_item.dart';
 import 'package:candy_labs/widgets/navbar/navbar_logo.dart';
 import 'package:flutter/material.dart';
@@ -21,30 +20,28 @@ class NavBarTabletDesktop extends StatelessWidget {
             children: <Widget>[
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (BuildContext context) => const HomeView()),
-                  );
+                  AutoRouter.of(context).replace(const HomeRoute());
                 },
-                child: const NavBarItem(title: 'home'),),
-              const SizedBox(width: 60,),
+                child: const NavBarItem(title: 'home'),
+              ),
+              const SizedBox(
+                width: 60,
+              ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (BuildContext context) => const MembersView()),
-                  );
+                  AutoRouter.of(context).replace(const MembersRoute());
                 },
-                child: const NavBarItem(title: 'members'),),
-              const SizedBox(width: 60,),
+                child: const NavBarItem(title: 'members'),
+              ),
+              const SizedBox(
+                width: 60,
+              ),
               GestureDetector(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (BuildContext context) => const ContactView()),
-                  );
+                  AutoRouter.of(context).replace(const ContactRoute());
                 },
-                child: const NavBarItem(title: 'contact'),),
+                child: const NavBarItem(title: 'contact'),
+              ),
             ],
           )
         ],

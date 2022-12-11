@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:candy_labs/auto_route/router.gr.dart';
 import 'package:candy_labs/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
@@ -14,12 +16,17 @@ class CallToActionMobile extends StatelessWidget {
         gradient: gradient1,
         borderRadius: BorderRadius.circular(5),
       ),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.w800,
-          color: Colors.white,
+      child:  GestureDetector(
+        onTap: () {
+          AutoRouter.of(context).replace(const MembersRoute());
+        },
+        child: Text(
+          title,
+          style: const TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w800,
+            color: Colors.white,
+          ),
         ),
       ),
     );
