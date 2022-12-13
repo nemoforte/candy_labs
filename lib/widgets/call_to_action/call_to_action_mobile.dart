@@ -16,17 +16,12 @@ class CallToActionMobile extends StatelessWidget {
         gradient: gradient1,
         borderRadius: BorderRadius.circular(5),
       ),
-      child:  GestureDetector(
-        onTap: () {
-          AutoRouter.of(context).replace(const MembersRoute());
-        },
-        child: Text(
-          title,
-          style: const TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w800,
-            color: Colors.white,
-          ),
+      child: Text(
+        title,
+        style: const TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w800,
+          color: Colors.white,
         ),
       ),
     );

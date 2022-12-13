@@ -1,3 +1,5 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:candy_labs/auto_route/router.gr.dart';
 import 'package:candy_labs/widgets/call_to_action/call_to_action_mobile.dart';
 import 'package:candy_labs/widgets/call_to_action/call_to_action_tablet_desktop.dart';
 import 'package:flutter/material.dart';
@@ -10,10 +12,18 @@ class CallToAction extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ScreenTypeLayout(
-      mobile: CallToActionMobile(title: title),
-      tablet: CallToActionTabletDesktop(title: title),
-      desktop: CallToActionTabletDesktop(title: title),
+    return MouseRegion(
+        cursor: SystemMouseCursors.click,
+        child: GestureDetector(
+          onTap: () {
+            AutoRouter.of(context).replace(const MembersRoute());
+            },
+          child: ScreenTypeLayout(
+             mobile: CallToActionMobile(title: title),
+             tablet: CallToActionTabletDesktop(title: title),
+              desktop: CallToActionTabletDesktop(title: title),
+          ),
+        ),
     );
   }
 }
