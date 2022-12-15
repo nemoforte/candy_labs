@@ -1,3 +1,4 @@
+import 'package:candy_labs/widgets/translate_on_hover.dart';
 import 'package:flutter/material.dart';
 
 class NavBarItem extends StatelessWidget {
@@ -9,9 +10,11 @@ class NavBarItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return MouseRegion(
       cursor: SystemMouseCursors.click,
-      child: Text(
-        title,
-        style: const TextStyle(fontSize: 18, color: Colors.white70),
+      child: TranslateOnHover(
+        child: Text(
+          title,
+          style: const TextStyle(fontSize: 18, color: Colors.white70),
+        ),
       ),
     );
   }
