@@ -1,4 +1,4 @@
-import 'package:candy_labs/widgets/translate_on_hover.dart';
+import 'package:candy_labs/widgets/hover/translate_on_hover.dart';
 import 'package:flutter/material.dart';
 
 class NavBarItem extends StatelessWidget {
