@@ -24,7 +24,7 @@ class CandyDetails extends StatelessWidget {
             children: <Widget>[
               Text(
                 'CANDY LABS',
-                style: TextStyle(fontWeight: FontWeight.w600, height: 0.9, fontSize: titleSize, color: Colors.white70),
+                style: TextStyle(fontWeight: FontWeight.w600, height: 0.9, fontSize: titleSize),
                 textAlign: TextAlign.center,
               ),
               const SizedBox(
@@ -38,7 +38,6 @@ class CandyDetails extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                   fontSize: descriptionSize,
                   height: 1.7,
-                  color: Colors.white70,
                 ),
                 textAlign: textAlignment,
               ),

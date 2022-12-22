@@ -17,11 +17,10 @@ class CounterPage extends StatelessWidget {
             const SizedBox(height: 200),
             const Text(
               'You have pushed the button this many times:',
-              style: TextStyle(color: Colors.white),
             ),
             Text(
               '$count',
-              style: const TextStyle(color: Colors.white, fontSize: 40),
+              style: const TextStyle(fontSize: 40),
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.end,

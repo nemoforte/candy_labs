@@ -14,7 +14,7 @@ class NavBarMobile extends StatelessWidget {
         children: <Widget>[
           IconButton(
             icon: const Icon(Icons.menu),
-            color: Colors.white,
+            color: Colors.white70,
             onPressed: () {
               Scaffold.of(context).openDrawer();
             },

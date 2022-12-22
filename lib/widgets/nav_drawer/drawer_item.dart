@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class DrawerItem extends StatelessWidget {
   final String title;
   final IconData icon;
+
   const DrawerItem({required this.title, required this.icon, super.key});
 
   @override
@@ -12,8 +13,7 @@ class DrawerItem extends StatelessWidget {
       padding: const EdgeInsets.only(left: 30, top: 60),
       child: Row(
         children: <Widget>[
-          Icon(icon,
-          color: Colors.white),
+          Icon(icon, color: Colors.white70),
           const SizedBox(
             width: 30,
           ),

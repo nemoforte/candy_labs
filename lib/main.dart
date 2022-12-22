@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       routeInformationParser: _appRouter.defaultRouteParser(),
       title: 'Candy Labs',
       theme: ThemeData(
-        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Palanquin'),
+        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Palanquin', bodyColor: Colors.white70),
       ),
     );
   }

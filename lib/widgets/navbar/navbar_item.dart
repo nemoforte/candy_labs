@@ -13,7 +13,7 @@ class NavBarItem extends StatelessWidget {
       child: TranslateOnHover(
         child: Text(
           title,
-          style: const TextStyle(fontSize: 18, color: Colors.white70),
+          style: const TextStyle(fontSize: 18),
         ),
       ),
     );
