@@ -15,8 +15,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerDelegate: _appRouter.delegate(),
       routeInformationParser: _appRouter.defaultRouteParser(),
-      title: 'Flutter Demo',
-      theme: ThemeData(),
+      title: 'Candy Labs',
+      theme: ThemeData(
+        textTheme: Theme.of(context).textTheme.apply(fontFamily: 'Palanquin'),
+      ),
     );
   }
 }
