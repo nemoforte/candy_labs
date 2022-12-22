@@ -1,5 +1,3 @@
-import 'package:auto_route/auto_route.dart';
-import 'package:candy_labs/auto_route/router.gr.dart';
 import 'package:candy_labs/constants/app_colors.dart';
 import 'package:flutter/material.dart';
 
