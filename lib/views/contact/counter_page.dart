@@ -1,4 +1,4 @@
-import 'package:candy_labs/views/members/counter_cubit.dart';
+import 'package:candy_labs/views/contact/counter_cubit.dart';
 import 'package:candy_labs/widgets/centered_view/centered_view.dart';
 import 'package:candy_labs/widgets/navbar/navbar.dart';
 import 'package:flutter/material.dart';

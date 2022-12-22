@@ -1,5 +1,5 @@
-import 'package:candy_labs/views/members/counter_cubit.dart';
-import 'package:candy_labs/views/members/counter_page.dart';
+import 'package:candy_labs/views/members/select_logic.dart';
+import 'package:candy_labs/views/members/select_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_builder/responsive_builder.dart';
