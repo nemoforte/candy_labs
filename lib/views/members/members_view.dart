@@ -13,9 +13,21 @@ class MembersView extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (BuildContext context, SizingInformation sizingInformation) => BlocProvider<CounterCubit>(
         create: (_) => CounterCubit(),
-        child: ScreenTypeLayout(
-          mobile: const SelectPageMobile(),
-          desktop: const SelectPageDesktop(),
+        child: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: <Color>[
+                Color.fromARGB(255, 31, 17, 30),
+                Color.fromARGB(255, 46, 37, 20),
+              ],
+              begin: Alignment.centerLeft,
+              end: Alignment.centerRight,
+            ),
+          ),
+          child: ScreenTypeLayout(
+            mobile: const SelectPageMobile(),
+            desktop: const SelectPageDesktop(),
+          ),
         ),
       ),
     );

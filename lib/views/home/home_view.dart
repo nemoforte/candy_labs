@@ -10,15 +10,23 @@ class HomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CenteredView(
-      child: Column(
-        children: <Widget>[
-          const NavBar(),
-          ScreenTypeLayout(
-            mobile: const HomeContentMobile(),
-            desktop: const HomeContentDesktop(),
-          ),
-        ],
+    return Container(
+      decoration: const BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/bc.png'),
+          fit: BoxFit.cover,
+        ),
+      ),
+      child: CenteredView(
+        child: Column(
+          children: <Widget>[
+            const NavBar(),
+            ScreenTypeLayout(
+              mobile: const HomeContentMobile(),
+              desktop: const HomeContentDesktop(),
+            ),
+          ],
+        ),
       ),
     );
   }

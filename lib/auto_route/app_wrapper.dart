@@ -11,15 +11,7 @@ class AppWrapper extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (BuildContext context, SizingInformation sizingInformation) => Scaffold(
         drawer: sizingInformation.deviceScreenType == DeviceScreenType.mobile ? const NavDrawer() : null,
-        body: Container(
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/bc.png'),
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: const AutoRouter(),
-        ),
+        body: const AutoRouter(),
       ),
     );
   }
