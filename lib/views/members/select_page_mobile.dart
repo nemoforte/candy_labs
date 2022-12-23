@@ -10,47 +10,51 @@ class SelectPageMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<CounterCubit, int>(
-      builder: (BuildContext context, int count) => CenteredView(
-        child: Column(
-          children: <Widget>[
-            const NavBar(),
-            Expanded(
-              child: Column(
-                children: const <Widget>[
-                  GridColumn(flex: 2, children: <Widget>[
-                    GridRow(
-                      flex: 1,
-                      children: <Widget>[
-                        GridBox(flex: 1),
-                        GridColumn(
-                          flex: 2,
+      builder: (BuildContext context, int count) => SingleChildScrollView(
+        child: CenteredView(
+          child: Column(
+            children: <Widget>[
+              const NavBar(),
+              SizedBox(
+                height: 1000,
+                child: Expanded(
+                  child: Column(
+                    children: const <Widget>[
+                      GridColumn(flex: 1, children: <Widget>[
+                        GridRow(
+                          flex: 1,
                           children: <Widget>[
                             GridBox(flex: 1),
-                            GridBox(flex: 1),
+                            GridColumn(
+                              flex: 2,
+                              children: <Widget>[
+                                GridBox(flex: 1),
+                                GridBox(flex: 1),
+                              ],
+                            ),
                           ],
                         ),
-                        GridBox(flex: 1),
-                      ],
-                    ),
-                    GridBox(flex: 2),
-                  ]),
-                  SizedBox(width: 50),
-                  GridColumn(
-                    flex: 1,
-                    children: <Widget>[
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
+                        GridBox(flex: 2),
+                      ]),
+                      SizedBox(width: 50),
+                      GridColumn(
+                        flex: 1,
+                        children: <Widget>[
+                          GridBox(flex: 1),
+                          GridBox(flex: 1),
+                          GridBox(flex: 1),
+                          GridBox(flex: 1),
+                          GridBox(flex: 1),
+                          GridBox(flex: 1),
+                          GridBox(flex: 1),
+                        ],
+                      ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
