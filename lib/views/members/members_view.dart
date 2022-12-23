@@ -11,8 +11,8 @@ class MembersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (BuildContext context, SizingInformation sizingInformation) => BlocProvider<CounterCubit>(
-        create: (_) => CounterCubit(),
+      builder: (BuildContext context, SizingInformation sizingInformation) => BlocProvider<SelectLogic>(
+        create: (_) => SelectLogic(),
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

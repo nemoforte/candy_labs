@@ -12,7 +12,7 @@ class SelectPageDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CounterCubit, int>(
+    return BlocBuilder<SelectLogic, int>(
       builder: (BuildContext context, int count) => CenteredView(
         child: Column(
           children: <Widget>[
@@ -41,13 +41,13 @@ class SelectPageDesktop extends StatelessWidget {
                   GridColumn(
                     flex: 1,
                     children: <Widget>[
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
-                      GridBox(flex: 1),
+                      Clickable(person: 1, name: 'aaa'),
+                      Clickable(person: 2, name: 'bbb'),
+                      Clickable(person: 3, name: 'ccc'),
+                      Clickable(person: 4, name: 'ddd'),
+                      Clickable(person: 5, name: 'eee'),
+                      Clickable(person: 6, name: 'fff'),
+                      Clickable(person: 7, name: 'ggg'),
                     ],
                   ),
                 ],
@@ -55,6 +55,34 @@ class SelectPageDesktop extends StatelessWidget {
             ),
           ],
         ),
+      ),
+    );
+  }
+}
+
+class Clickable extends StatelessWidget {
+  final int person;
+
+  final String name;
+
+  const Clickable({required this.person, required this.name, Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        child: GridBox(
+            flex: 1,
+            height: 50,
+            width: 200,
+            child: Text(
+              name,
+              style: const TextStyle(color: Colors.black),
+            )),
+        onTap: () {
+          context.read<SelectLogic>().number(person);
+        },
       ),
     );
   }

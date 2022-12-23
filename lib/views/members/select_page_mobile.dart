@@ -1,4 +1,5 @@
 import 'package:candy_labs/views/members/select_logic.dart';
+import 'package:candy_labs/views/members/select_page_desktop.dart';
 import 'package:candy_labs/widgets/centered_view/centered_view.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_box.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_column.dart';
@@ -12,7 +13,7 @@ class SelectPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CounterCubit, int>(
+    return BlocBuilder<SelectLogic, int>(
       builder: (BuildContext context, int count) => SingleChildScrollView(
         child: CenteredView(
           child: Column(
@@ -43,13 +44,13 @@ class SelectPageMobile extends StatelessWidget {
                       GridColumn(
                         flex: 1,
                         children: <Widget>[
-                          GridBox(flex: 1),
-                          GridBox(flex: 1),
-                          GridBox(flex: 1),
-                          GridBox(flex: 1),
-                          GridBox(flex: 1),
-                          GridBox(flex: 1),
-                          GridBox(flex: 1),
+                          Clickable(person: 1, name: 'aaa'),
+                          Clickable(person: 2, name: 'bbb'),
+                          Clickable(person: 3, name: 'ccc'),
+                          Clickable(person: 4, name: 'ddd'),
+                          Clickable(person: 5, name: 'eee'),
+                          Clickable(person: 6, name: 'fff'),
+                          Clickable(person: 7, name: 'ggg'),
                         ],
                       ),
                     ],
@@ -63,12 +64,6 @@ class SelectPageMobile extends StatelessWidget {
     );
   }
 }
-
-
-
-
-
-
 
 // Row(
 // mainAxisAlignment: MainAxisAlignment.center,
