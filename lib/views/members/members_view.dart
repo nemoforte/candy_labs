@@ -1,4 +1,4 @@
-import 'package:candy_labs/views/members/select_logic.dart';
+import 'package:candy_labs/views/members/members_cubit.dart';
 import 'package:candy_labs/views/members/select_page_desktop.dart';
 import 'package:candy_labs/views/members/select_page_mobile.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +11,8 @@ class MembersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (BuildContext context, SizingInformation sizingInformation) => BlocProvider<SelectLogic>(
-        create: (_) => SelectLogic(),
+      builder: (BuildContext context, SizingInformation sizingInformation) => BlocProvider<ImageCubit>(
+        create: (_) => ImageCubit(),
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
