@@ -5,7 +5,11 @@ class GridColumn extends StatelessWidget {
 
   final List<Widget> children;
 
-  const GridColumn({required this.flex, required this.children, super.key});
+  final MainAxisAlignment mainAxisAlignment;
+
+  final CrossAxisAlignment crossAxisAlignment;
+
+  const GridColumn({required this.flex, required this.children, this.mainAxisAlignment = MainAxisAlignment.center, this.crossAxisAlignment = CrossAxisAlignment.center, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +17,8 @@ class GridColumn extends StatelessWidget {
       fit: FlexFit.tight,
       flex: flex,
       child: Column(
+        mainAxisAlignment: mainAxisAlignment,
+        crossAxisAlignment: crossAxisAlignment,
         children: children,
       ),
     );

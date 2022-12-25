@@ -5,7 +5,11 @@ class GridRow extends StatelessWidget {
 
   final List<Widget> children;
 
-  const GridRow({required this.flex, required this.children, super.key});
+  final MainAxisAlignment mainAxisAlignment;
+
+  final CrossAxisAlignment crossAxisAlignment;
+
+  const GridRow({required this.flex, required this.children, this.mainAxisAlignment = MainAxisAlignment.center, this.crossAxisAlignment = CrossAxisAlignment.center, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +17,8 @@ class GridRow extends StatelessWidget {
       fit: FlexFit.tight,
       flex: flex,
       child: Row(
+        mainAxisAlignment: mainAxisAlignment,
+        crossAxisAlignment: crossAxisAlignment,
         children: children,
       ),
     );
