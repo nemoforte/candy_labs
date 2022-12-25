@@ -64,26 +64,3 @@ class SelectPageMobile extends StatelessWidget {
     );
   }
 }
-
-// Row(
-// mainAxisAlignment: MainAxisAlignment.center,
-// children: <Widget>[
-// const CircleAvatar(foregroundImage: AssetImage('assets/MS.jpg'), radius: 80),
-// const SizedBox(
-// width: 20,
-// ),
-// Column(
-// mainAxisAlignment: MainAxisAlignment.start,
-// children: const <Widget>[
-// Text(
-// 'Marcin',
-// style: TextStyle(fontWeight: FontWeight.w600, fontSize: 100, color: Colors.white),
-// ),
-// Text(
-// 'Skiper',
-// style: TextStyle(fontWeight: FontWeight.w400, fontSize: 100, color: Colors.white),
-// ),
-// ],
-// ),
-// ],
-// ),

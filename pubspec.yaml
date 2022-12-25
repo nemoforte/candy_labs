@@ -68,7 +68,14 @@ flutter:
   assets:
    - assets/logo.png
    - assets/bc.png
+   - assets/KW.jpg
+   - assets/OW.jpg
    - assets/MS.jpg
+   - assets/DP.jpg
+   - assets/PL.jpg
+   - assets/RW.jpg
+   - assets/MW.jpg
+
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
