@@ -1,6 +1,11 @@
 import 'package:candy_labs/views/members/members_data.dart';
+import 'package:equatable/equatable.dart';
+import 'package:flutter/cupertino.dart';
 
-class MemberModel {
+@immutable
+abstract class MemberNo extends Equatable {}
+
+class MemberModel extends MemberNo {
   final dynamic index;
 
   MemberModel({required this.index});
@@ -24,4 +29,7 @@ class MemberModel {
   String id() {
     return memberList[index]['id'];
   }
+
+  @override
+  List<Object?> get props => <Object?>[index];
 }
