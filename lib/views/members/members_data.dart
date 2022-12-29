@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:candy_labs/views/members/member_model.dart';
+
 String jsonArray = '''
 [{"first_name":"Karol","last_name":"Wietrzyński","role":"Koordynator","avatar":"assets/KW.jpg","id":1},
 {"first_name":"Olga","last_name":"Winconek","role":"Data Scientist","avatar":"assets/OW.jpg","id":2},
@@ -9,4 +11,6 @@ String jsonArray = '''
 {"first_name":"Renata","last_name":"Wietrzyńska","role":"Programistka","avatar":"assets/RW.jpg","id":6},
 {"first_name":"Mateusz","last_name":"Kot","role":"Kot","avatar":"assets/MW.jpg","id":7}]''';
 
-List<dynamic> memberList = jsonDecode(jsonArray);
+List<dynamic> resultList = jsonDecode(jsonArray);
+
+List <Member> memberList = resultList.map((e) => Member.fromJson(e)).toList();

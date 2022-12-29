@@ -18,8 +18,8 @@ class SelectPageMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MembersCubit, MemberModel>(
-      builder: (BuildContext context, MemberModel member) => CenteredView(
+    return BlocBuilder<MembersCubit, Member>(
+      builder: (BuildContext context, Member member) => CenteredView(
         child: Column(
           children: <Widget>[
             const NavBar(),
@@ -34,15 +34,15 @@ class SelectPageMobile extends StatelessWidget {
                           flex: 1,
                           child: CircleAvatar(
                             foregroundImage: AssetImage(
-                              member.avatar(),
+                              member.avatar,
                             ),
                           ),
                         ),
                         GridElement(
                           flex: 2,
                           child: MembersName(
-                            firstName: '${member.firstName()} ',
-                            lastName: member.lastName(),
+                            firstName: '${member.firstName} ',
+                            lastName: member.lastName,
                           ),
                         ),
                         const GridSpace(
@@ -59,13 +59,13 @@ class SelectPageMobile extends StatelessWidget {
                     children: <Widget>[
                       Expanded(
                         child: ListView.builder(
-                          itemCount: memberList.length,
+                          itemCount: resultList.length,
                           itemBuilder: (_, int index) {
                             return MemberListPosition(
                                 onTap: () => context.read<MembersCubit>().number(index),
                                 index: index,
-                                color: member == MemberModel(index: index) ? Colors.white : Colors.white70,
-                                iconData: member == MemberModel(index: index) ? Icons.circle : Icons.circle_outlined);
+                                color: member == memberList[index] ? Colors.white : Colors.white70,
+                                iconData: member == memberList[index] ? Icons.circle : Icons.circle_outlined);
                           },
                         ),
                       )

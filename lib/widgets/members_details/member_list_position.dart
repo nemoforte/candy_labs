@@ -1,4 +1,4 @@
-import 'package:candy_labs/views/members/member_model.dart';
+import 'package:candy_labs/views/members/members_data.dart';
 import 'package:flutter/material.dart';
 
 class MemberListPosition extends StatelessWidget {
@@ -23,7 +23,7 @@ class MemberListPosition extends StatelessWidget {
             FittedBox(
               fit: BoxFit.contain,
               child: Text(
-                MemberModel(index: index).role(),
+                memberList[index].role,
                 style: TextStyle(color: color),
               ),
             ),

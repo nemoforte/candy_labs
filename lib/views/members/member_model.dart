@@ -1,35 +1,33 @@
-import 'package:candy_labs/views/members/members_data.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/cupertino.dart';
 
 @immutable
 abstract class MemberNo extends Equatable {}
 
-class MemberModel extends MemberNo {
-  final dynamic index;
+class Member extends MemberNo {
+  final String firstName;
+  final String lastName;
+  final String role;
+  final String avatar;
+  final int id;
 
-  MemberModel({required this.index});
+  Member(this.firstName, this.lastName, this.role, this.avatar, this.id);
 
-  String? firstName() {
-    return memberList[index]['first_name'];
-  }
+  Member.fromJson(Map<String, dynamic> json)
+    : firstName = json['first_name'],
+      lastName = json['last_name'],
+      role = json['role'],
+      avatar = json['avatar'],
+      id = json['id'];
 
-  String lastName() {
-    return memberList[index]['last_name'];
-  }
-
-  String role() {
-    return memberList[index]['role'];
-  }
-
-  String avatar() {
-    return memberList[index]['avatar'];
-  }
-
-  String id() {
-    return memberList[index]['id'];
-  }
+  Map<String, dynamic>? toJson() => <String,dynamic>{
+    'firstName' : firstName,
+    'lastName' : lastName,
+    'role' : role,
+    'avatar' : avatar,
+    'id' : id,
+  };
 
   @override
-  List<Object?> get props => <Object?>[index];
+  List<Object?> get props => <Object?>[firstName, lastName, role, avatar, id];
 }
