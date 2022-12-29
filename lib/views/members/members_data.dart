@@ -13,5 +13,4 @@ String jsonArray = '''
 
 List<dynamic> resultList = jsonDecode(jsonArray) as List<dynamic>;
 
-List<Member> memberList = List<Member>.from(resultList.map<dynamic>((dynamic e) => Member.fromJson(e)));
-// List<Member> memberList = resultList.map((dynamic e) => Member.fromJson(e)).toList();
+List<Member> memberList = resultList.map((dynamic e) => Member.fromJson(e as Map<String, dynamic>)).toList();
