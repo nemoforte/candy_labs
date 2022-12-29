@@ -1,4 +1,4 @@
-import 'package:candy_labs/views/members/member_model.dart';
+import 'package:candy_labs/views/members/member.dart';
 import 'package:candy_labs/views/members/members_cubit.dart';
 import 'package:candy_labs/views/members/members_data.dart';
 import 'package:candy_labs/widgets/centered_view/centered_view.dart';

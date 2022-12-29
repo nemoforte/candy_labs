@@ -14,11 +14,11 @@ class Member extends MemberNo {
   Member(this.firstName, this.lastName, this.role, this.avatar, this.id);
 
   Member.fromJson(Map<String, dynamic> json)
-    : firstName = json['first_name'],
-      lastName = json['last_name'],
-      role = json['role'],
-      avatar = json['avatar'],
-      id = json['id'];
+    : firstName = json['first_name'] as String,
+      lastName = json['last_name'] as String,
+      role = json['role'] as String,
+      avatar = json['avatar'] as String,
+      id = json['id'] as int;
 
   Map<String, dynamic>? toJson() => <String,dynamic>{
     'firstName' : firstName,
