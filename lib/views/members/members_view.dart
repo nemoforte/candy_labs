@@ -1,4 +1,5 @@
-import 'package:candy_labs/views/members/members_cubit.dart';
+import 'package:candy_labs/blocs/members/members_bloc.dart';
+import 'package:candy_labs/repositories/members_repository.dart';
 import 'package:candy_labs/views/members/select_page_desktop.dart';
 import 'package:candy_labs/views/members/select_page_mobile.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,8 @@ class MembersView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ResponsiveBuilder(
-      builder: (BuildContext context, SizingInformation sizingInformation) => BlocProvider<MembersCubit>(
-        create: (_) => MembersCubit(),
+      builder: (BuildContext context, SizingInformation sizingInformation) => RepositoryProvider<MembersRepository>(
+        create: (BuildContext context) => MembersRepository(),
         child: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(

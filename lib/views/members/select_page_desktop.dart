@@ -1,6 +1,9 @@
-import 'package:candy_labs/views/members/member.dart';
-import 'package:candy_labs/views/members/members_cubit.dart';
-import 'package:candy_labs/views/members/members_data.dart';
+import 'package:candy_labs/blocs/members/members_bloc.dart';
+import 'package:candy_labs/blocs/members/members_cubit.dart';
+import 'package:candy_labs/blocs/members/members_event.dart';
+import 'package:candy_labs/blocs/members/members_state.dart';
+import 'package:candy_labs/models/member.dart';
+import 'package:candy_labs/repositories/members_repository.dart';
 import 'package:candy_labs/widgets/centered_view/centered_view.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_box.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_column.dart';
@@ -18,61 +21,86 @@ class SelectPageDesktop extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MembersCubit, Member>(
-      builder: (BuildContext context, Member member) => CenteredView(
+    return BlocProvider<MembersBloc>(
+      create: (BuildContext context) => MembersBloc(
+        RepositoryProvider.of<MembersRepository>(context),
+      )..add(LoadMembersEvent()),
+      child: CenteredView(
         child: Column(
           children: <Widget>[
             const NavBar(),
-            Expanded(
-              child: Row(
-                children: <Widget>[
-                  GridColumn(flex: 8, children: <Widget>[
-                    GridRow(
-                      flex: 1,
-                      children: <Widget>[
-                        GridElement(
-                          flex: 1,
-                          child: CircleAvatar(
-                            foregroundImage: AssetImage(
-                              member.avatar,
+            BlocBuilder<MembersBloc, MembersState>(
+              builder: (BuildContext context, MembersState state) {
+                if (state is MembersLoadingState) {
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                } else if (state is MembersLoadedState) {
+                  List<Member> members = state.members;
+                  return BlocProvider<MembersCubit>(
+                    create: (_) => MembersCubit(members),
+                    child: BlocBuilder<MembersCubit, Member>(
+                      builder: (BuildContext context, Member member) => Expanded(
+                        child: Row(
+                          children: <Widget>[
+                            GridColumn(
+                              flex: 8,
+                              children: <Widget>[
+                                GridRow(
+                                  flex: 1,
+                                  children: <Widget>[
+                                    GridElement(
+                                      flex: 1,
+                                      child: CircleAvatar(
+                                        foregroundImage: AssetImage(
+                                          member.avatar,
+                                        ),
+                                      ),
+                                    ),
+                                    GridElement(
+                                      flex: 2,
+                                      child: MembersName(
+                                        firstName: '${member.firstName} ',
+                                        lastName: member.lastName,
+                                      ),
+                                    ),
+                                    const GridSpace(
+                                      flex: 1,
+                                    )
+                                  ],
+                                ),
+                                const GridBox(flex: 2),
+                              ],
                             ),
-                          ),
+                            const GridSpace(flex: 1),
+                            GridColumn(
+                              flex: 4,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: <Widget>[
+                                Expanded(
+                                  child: ListView.builder(
+                                    itemCount: members.length,
+                                    itemBuilder: (_, int index) {
+                                      return MemberListPosition(
+                                          onTap: () => context.read<MembersCubit>().number(index),
+                                          index: index,
+                                          members: members,
+                                          color: member == members[index] ? Colors.white : Colors.white70,
+                                          iconData: member == members[index] ? Icons.circle : Icons.circle_outlined);
+                                    },
+                                  ),
+                                )
+                              ],
+                            ),
+                          ],
                         ),
-                        GridElement(
-                          flex: 2,
-                          child: MembersName(
-                            firstName: '${member.firstName} ',
-                            lastName: member.lastName,
-                          ),
-                        ),
-                        const GridSpace(
-                          flex: 1,
-                        )
-                      ],
+                      ),
                     ),
-                    const GridBox(flex: 2),
-                  ]),
-                  const GridSpace(flex: 1),
-                  GridColumn(
-                    flex: 4,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: <Widget>[
-                      Expanded(
-                        child: ListView.builder(
-                          itemCount: resultList.length,
-                          itemBuilder: (_, int index) {
-                            return MemberListPosition(
-                              onTap: () => context.read<MembersCubit>().number(index),
-                              index: index,
-                                color: member == memberList[index] ? Colors.white : Colors.white70,
-                                iconData: member == memberList[index] ? Icons.circle : Icons.circle_outlined);
-                          },
-                        ),
-                      )
-                    ],
-                  ),
-                ],
-              ),
+                  );
+                } else {
+                  return const Center(child: Text('Error'));
+                }
+              },
             ),
           ],
         ),
