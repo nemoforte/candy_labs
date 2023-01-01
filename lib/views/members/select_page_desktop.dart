@@ -5,7 +5,6 @@ import 'package:candy_labs/blocs/members/members_state.dart';
 import 'package:candy_labs/models/member.dart';
 import 'package:candy_labs/repositories/members_repository.dart';
 import 'package:candy_labs/widgets/centered_view/centered_view.dart';
-import 'package:candy_labs/widgets/grid_builder/grid_box.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_column.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_element.dart';
 import 'package:candy_labs/widgets/grid_builder/grid_row.dart';
@@ -69,7 +68,27 @@ class SelectPageDesktop extends StatelessWidget {
                                     )
                                   ],
                                 ),
-                                const GridBox(flex: 2),
+                                GridColumn(
+                                  flex: 2,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: <Widget>[
+                                    Text(
+                                      member.about1,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 20,
+                                    ),
+                                    Text(
+                                      member.about2,
+                                      style: const TextStyle(
+                                        fontSize: 18,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                             const GridSpace(flex: 1),

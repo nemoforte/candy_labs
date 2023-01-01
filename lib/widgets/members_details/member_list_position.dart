@@ -21,16 +21,17 @@ class MemberListPosition extends StatelessWidget {
       child: GestureDetector(
         onTap: onTap,
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.end,
           children: <Widget>[
             FittedBox(
               fit: BoxFit.contain,
               child: Text(
                 members[index].role,
-                style: TextStyle(color: color),
+                style: TextStyle(color: color, fontSize: 26),
               ),
             ),
-            const SizedBox(width: 5),
-            Icon(iconData, color: color, size: 10),
+            const SizedBox(width: 8),
+            Icon(iconData, color: color, size: 24),
           ],
         ),
       ),
